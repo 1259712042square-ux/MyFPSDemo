@@ -1,6 +1,7 @@
 # MyFPSDemo
 
 基于 Unreal Engine 5 First Person 模板开发的局域网 1v1 第一人称射击对战 Demo。
+![游戏演示](demo.gif)
 
 ## 游戏概述
 
