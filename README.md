@@ -19,14 +19,14 @@
 
 采用 Listen Server 模式，通过三个核心蓝图实现多人同步：
 
-- **BP_FPSGameMode**（仅服务器端）：负责比赛流程控制、敌人/金币动态生成与补刷、玩家死亡和重生处理
-- **BP_FPSGameState**：同步全局比赛状态（剩余时间、比赛进行状态），通过 Replicated + RepNotify 驱动客户端 HUD 更新
+- **BP_FPSGameMode**：负责比赛流程控制、敌人/金币动态生成与补刷、玩家死亡和重生处理
+- **BP_FPSGameState**：同步全局比赛状态，通过 Replicated + RepNotify 驱动客户端 HUD 更新
 - **BP_FPSPlayerState**：保存玩家金币数据，通过复制机制同步到所有客户端
 
 ### 敌人 AI
 
 - 基于 BP_EnnemyAI 蓝图，开启 Replicates 和 Replicate Movement
-- AI 逻辑仅在服务器端运行（Has Authority 判断），客户端只接收同步数据
+- AI 逻辑仅在服务器端运行，客户端只接收同步数据
 - 通过 OnSeePawn 感知玩家，使用 SphereTrace 检测攻击命中
 - 攻击动画通过 Multicast 广播至所有客户端
 - 敌人死亡后由 GameMode 在随机 NavMesh 位置补刷，始终维持 5 个
@@ -34,13 +34,13 @@
 ### 射击与伤害系统
 
 - 射击输入通过 ServerFire RPC 发送至服务器，由服务器生成子弹
-- 子弹命中敌人直接击杀，命中玩家造成 5 点伤害（一击必杀）
-- 包含自伤判断（Instigator 检查）
+- 子弹命中敌人直接击杀，命中玩家造成 5 点伤害
+- 包含Instigator 检查
 - 生命值通过 BP_HealthComponent 管理，CurrentHealth 使用 RepNotify 同步 HUD
 
 ### 金币系统
 
-- 拾取逻辑仅在服务器端执行（Has Authority 判断）
+- 拾取逻辑仅在服务器端执行
 - 金币数据存储于 PlayerState，通过 Replicated + RepNotify 自动刷新 HUD
 - 始终维持地图中 7 枚金币，被拾取后在随机 NavMesh 位置补刷
 - 玩家死亡时金币清零
