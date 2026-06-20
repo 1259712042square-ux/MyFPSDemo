@@ -1,0 +1,590 @@
+﻿{
+    "FileVersion":  3,
+    "Version":  7,
+    "VersionName":  "1.5.5",
+    "FriendlyName":  "Ultimate Engine Copilot",
+    "Description":  "The only tool you\u0027ll ever need for UE5.",
+    "Category":  "Other",
+    "CreatedBy":  "BlueprintsLab-Roly Dev",
+    "CreatedByURL":  "https://www.fab.com/sellers/BlueprintsLab",
+    "DocsURL":  "https://www.gamedevcore.com/docs/bpgenerator-ultimate",
+    "MarketplaceURL":  "com.epicgames.launcher://ue/Fab/product/8d776721-5da3-44ce-b7ef-be17a023be59",
+    "SupportURL":  "https://discord.gg/w65xMuxEhb",
+    "CanContainContent":  true,
+    "EngineVersion":  "5.5.0",
+    "IsBetaVersion":  false,
+    "IsExperimentalVersion":  false,
+    "Modules":  [
+                    {
+                        "Name":  "UECPCore",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "PostConfigInit"
+                    },
+                    {
+                        "Name":  "UECPTools",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "PostEngineInit"
+                    },
+                    {
+                        "Name":  "UECPMCPBridge",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "PostEngineInit"
+                    },
+                    {
+                        "Name":  "UECPShell",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "PostEngineInit"
+                    },
+                    {
+                        "Name":  "UECPACP",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "PostEngineInit"
+                    },
+                    {
+                        "Name":  "UECPAiMemory",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "PostEngineInit"
+                    },
+                    {
+                        "Name":  "UECPAnalyst",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "PostEngineInit"
+                    },
+                    {
+                        "Name":  "UECPArchitect",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "PostEngineInit"
+                    },
+                    {
+                        "Name":  "UECPAssetGen",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "PostEngineInit"
+                    },
+                    {
+                        "Name":  "UECPFeedback",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "PostEngineInit"
+                    },
+                    {
+                        "Name":  "UECPGdd",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "PostEngineInit"
+                    },
+                    {
+                        "Name":  "UECPLearning",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "PostEngineInit"
+                    },
+                    {
+                        "Name":  "UECPProjectScanner",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "PostEngineInit"
+                    },
+                    {
+                        "Name":  "UECPVoice",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "PostEngineInit"
+                    },
+                    {
+                        "Name":  "UECPGameFeaturesExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPLiveLinkExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPMassEntityExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPCinematicsExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPAudioExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPUIExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPAnimationExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPLevelDesignExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPMaterialExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPNiagaraExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPAIExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPGASExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPInputExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPBlueprintExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPDataExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPCppExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPPythonExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPMoverExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPMVVMExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPLevelSnapshotExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPMediaExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPVehicleExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPWaterExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPGeometryScriptExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPEditorUIExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    },
+                    {
+                        "Name":  "UECPSearchExt",
+                        "Type":  "Editor",
+                        "PlatformAllowList":  [
+                                                  "Win64",
+                                                  "Mac",
+                                                  "Linux"
+                                              ],
+                        "LoadingPhase":  "None"
+                    }
+                ],
+    "Plugins":  [
+                    {
+                        "Name":  "EditorScriptingUtilities",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "WebBrowserWidget",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "EnhancedInput",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "IKRig",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "Niagara",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "PCG",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "GameplayTagsEditor",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "GameplayAbilities",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "Metasound",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "StateTree",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "GameplayStateTree",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "ControlRig",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "RigVM",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "PoseSearch",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "Chooser",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "MovieRenderPipeline",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "HairStrands",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "CommonUI",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "AudioModulation",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "PythonScriptPlugin",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "ConcertSyncClient",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "ConcertSyncCore",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "ConcertMain",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    },
+                    {
+                        "Name":  "ConcertSharedSlate",
+                        "Enabled":  true,
+                        "TargetAllowList":  [
+                                                "Editor"
+                                            ]
+                    }
+                ],
+    "Installed":  true
+}

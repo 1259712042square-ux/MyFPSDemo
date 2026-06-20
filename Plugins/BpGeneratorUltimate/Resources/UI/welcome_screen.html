@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a1e;color:#d4d4d4;font-family:'Segoe UI',Arial,sans-serif;font-size:13.5px;line-height:1.65;overflow-y:auto;overflow-x:hidden}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#1a1a1e}
+::-webkit-scrollbar-thumb{background:#444;border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:#666}
+
+.header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px 10px;border-bottom:1px solid #2a2a2e;background:#1e1e22;position:sticky;top:0;z-index:10}
+.header-left{display:flex;align-items:center;gap:10px}
+.logo{font-size:18px;font-weight:700;color:#cf7c45}
+.logo span{color:#888;font-weight:400;font-size:12px;margin-left:6px}
+.header-right{display:flex;align-items:center;gap:8px}
+.lang-label{font-size:10px;color:#666;text-transform:uppercase;letter-spacing:.5px}
+.lang-select{background:#1a1a1e;border:1.5px solid #cf7c45;color:#e0c8a8;padding:5px 10px;border-radius:8px;font-size:11px;cursor:pointer;outline:none;box-shadow:0 0 8px rgba(207,124,69,.2);transition:box-shadow .2s,border-color .2s}
+.lang-select:hover,.lang-select:focus{border-color:#e08a4f;box-shadow:0 0 14px rgba(207,124,69,.4)}
+
+.content{padding:20px 28px 16px;max-width:680px;margin:0 auto}
+.content p{margin-bottom:12px;color:#bbb}
+.content strong{color:#e0e0e0}
+.content h2{color:#cf7c45}
+
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 28px 16px;max-width:680px;margin:0 auto}
+.btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 16px;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .15s}
+.btn-primary{background:#cf7c45;color:#fff}
+.btn-primary:hover{background:#e08a4f;transform:translateY(-1px)}
+.btn-secondary{background:#2a2a2e;color:#ccc;border:1px solid #3a3a3e}
+.btn-secondary:hover{background:#333;border-color:#cf7c45;color:#fff}
+.btn-cyan{background:#2bb4c9;color:#fff}
+.btn-cyan:hover{background:#3ac5da;transform:translateY(-1px)}
+
+.footer{display:flex;align-items:center;justify-content:space-between;padding:12px 28px 16px;border-top:1px solid #2a2a2e;max-width:680px;margin:0 auto}
+.checkbox-row{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;color:#888}
+.checkbox-row input{accent-color:#cf7c45;width:14px;height:14px}
+.close-btn{background:#2a2a2e;color:#ccc;border:1px solid #3a3a3e;padding:6px 20px;border-radius:6px;font-size:12px;cursor:pointer}
+.close-btn:hover{background:#333;border-color:#cf7c45;color:#fff}
+
+body.announcement .header{background:#1c2228;border-bottom-color:#2a3a4a}
+body.announcement .logo{color:#5b9bd5}
+body.announcement .btn-primary{background:#5b9bd5}
+body.announcement .btn-primary:hover{background:#6baae5}
+/* ── Custom select (prevents CEF popup crash on UE5.7) ── */
+.cs-wrap{position:relative;display:inline-block}
+.cs-display{background:#1a1a1e;border:1.5px solid #cf7c45;color:#e0c8a8;padding:5px 26px 5px 10px;border-radius:8px;font-size:11px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23cf7c45'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;transition:box-shadow .2s,border-color .2s;user-select:none}
+.cs-display:hover{border-color:#e08a4f;box-shadow:0 0 14px rgba(207,124,69,.4)}
+.cs-display.open{border-color:#e08a4f;box-shadow:0 0 14px rgba(207,124,69,.4)}
+.cs-list{display:none;position:absolute;top:calc(100% + 2px);left:0;right:0;z-index:99999;background:#222226;border:1px solid #3a3a3e;border-radius:7px;max-height:200px;overflow-y:auto;box-shadow:0 6px 20px rgba(0,0,0,.5)}
+.cs-list.open{display:block}
+.cs-item{padding:7px 10px;cursor:pointer;font-size:11px;color:#aaa;transition:background .1s,color .1s}
+.cs-item:hover{background:rgba(255,255,255,.06);color:#eee}
+.cs-item.cs-sel{color:#cf7c45}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left">
+    <div class="logo">Ultimate Engine Copilot <span id="version-badge">V1.0</span></div>
+  </div>
+  <div class="header-right">
+    <span class="lang-label">🌐 Language</span>
+  <select class="lang-select" id="lang-select" onchange="onLangChange(this.value)">
+    <option value="en">EN — English</option>
+    <option value="es">ES — Español</option>
+    <option value="fr">FR — Français</option>
+    <option value="de">DE — Deutsch</option>
+    <option value="zh">CN — 中文</option>
+    <option value="ja">JP — 日本語</option>
+    <option value="ru">RU — Русский</option>
+    <option value="pt">PT — Português</option>
+    <option value="ko">KR — 한국어</option>
+    <option value="it">IT — Italiano</option>
+    <option value="ar">AR — العربية</option>
+    <option value="nl">NL — Nederlands</option>
+    <option value="tr">TR — Türkçe</option>
+    <option value="pl">PL — Polski</option>
+    <option value="vi">VI — Tiếng Việt</option>
+    <option value="id">ID — Indonesia</option>
+    <option value="hi">HI — हिन्दी</option>
+    <option value="ro">RO — Română</option>
+    <option value="th">TH — ไทย</option>
+    <option value="uk">UK — Українська</option>
+  </select>
+  </div>
+</div>
+
+<div class="content" id="body-content">
+  <p style="text-align:center;padding:40px;color:#666">Loading...</p>
+</div>
+
+<div class="buttons" id="cta-buttons"></div>
+
+<div class="footer">
+  <label class="checkbox-row" id="dismiss-row">
+    <input type="checkbox" id="dismiss-check">
+    <span id="dismiss-label">Don't show this again</span>
+  </label>
+  <button class="close-btn" onclick="doClose()">Close</button>
+</div>
+
+<script>
+var _data = null;
+var _lang = 'en';
+var _mode = 'welcome';
+
+var _dismissLabels = {
+  en:"Don't show this again", es:"No mostrar de nuevo", fr:"Ne plus afficher",
+  de:"Nicht mehr anzeigen", zh:"不再显示", ja:"今後表示しない",
+  ru:"Больше не показывать", pt:"Não mostrar novamente", ko:"다시 표시하지 않기",
+  it:"Non mostrare più", ar:"عدم الإظهار مجدداً", nl:"Niet meer tonen",
+  tr:"Bir daha gösterme", pl:"Nie pokazuj ponownie", vi:"Không hiển thị lại",
+  id:"Jangan tampilkan lagi", hi:"फिर से न दिखाएं", ro:"Nu mai afisa",
+  th:"ไม่ต้องแสดงอีก", uk:"Більше не показувати"
+};
+
+/* ── Hardcoded English fallback ── */
+var _fallbackData = {
+  version:"1.0",
+  body_html_en:"<div style='text-align:center;margin-bottom:18px'><span style='font-size:28px'>\ud83c\udf89</span><h2 style='margin:8px 0 0;font-size:22px;font-weight:700;color:#cf7c45'>V1 is here</h2></div><p>Thank you. Genuinely, from the bottom of my heart, thank you.</p><p>Nine months ago, I started building this plugin alone. No team, no funding, just a vision: bring a true AI copilot to Unreal Engine. Back in early 2025, nothing like this existed. This was the first real attempt at an engine copilot for UE5, and I poured everything I had into making it work.</p><p>Today, <strong>Ultimate Engine Copilot is endorsed by Epic Games on FAB</strong>, trusted by thousands of developers worldwide, and backed by the fastest-growing community in the Unreal Engine ecosystem. That happened because of you.</p><p style='font-size:15px;color:#cf7c45;font-weight:600'>This is V1. We are officially out of beta.</p><p>Unlike anything else on the market, this is the only copilot that gives you <strong>free AI access</strong> after your purchase. No subscriptions, no hidden fees.</p><p>Special thanks to <strong>Ashley</strong>, who joined me these past two months and helped push this plugin across the finish line into V1.</p><p>We still have hundreds, if not thousands, of new things to bring to this copilot. <strong>This is the only copilot you will ever need.</strong></p><p style='margin-top:16px;padding:12px;background:rgba(207,124,69,.12);border-radius:8px;border-left:3px solid #cf7c45'>If this plugin has helped you, I would truly appreciate a <strong>review on FAB</strong>. It only takes a minute.</p><p style='margin-top:18px;color:#999;font-style:italic'>With gratitude,<br><strong>Roly</strong>, Creator of Ultimate Engine Copilot<br><strong>Ashley</strong>, the Co-Pilot behind the Copilot</p>",
+  cta_buttons:[
+    {label_en:"\u2b50 Leave a Review on FAB",url:"https://www.fab.com/sellers/BlueprintsLab",style:"primary"},
+    {label_en:"\ud83d\udcd6 Documentation",url:"https://www.gamedevcore.com/docs/bpgenerator-ultimate",style:"secondary"},
+    {label_en:"\ud83d\udcac Join Discord",url:"https://discord.gg/w65xMuxEhb",style:"secondary"},
+    {label_en:"\ud83d\udccb Changelog",url:"https://www.gamedevcore.com/docs/bpgenerator-ultimate/changelog",style:"secondary"}
+  ]
+};
+
+function initWelcome(json) {
+  _mode = 'welcome';
+  try { _data = typeof json === 'string' ? JSON.parse(json) : json; } catch(e) { _data = _fallbackData; }
+  if (!_data) _data = _fallbackData;
+  render();
+}
+
+function initAnnouncement(json) {
+  _mode = 'announcement';
+  document.body.classList.add('announcement');
+  try { _data = typeof json === 'string' ? JSON.parse(json) : json; } catch(e) { return; }
+  render();
+}
+
+function setLanguage(code) {
+  _lang = code;
+  var sel = document.getElementById('lang-select');
+  if (sel) sel.value = code;
+  render();
+}
+
+function render() {
+  if (!_data) return;
+  var body = _data['body_html_' + _lang] || _data['body_html_en'] || '';
+  document.getElementById('body-content').innerHTML = body;
+  var btns = _data.cta_buttons || [];
+  var btnHtml = '';
+  for (var i = 0; i < btns.length; i++) {
+    var b = btns[i];
+    var label = b['label_' + _lang] || b['label_en'] || '';
+    var cls = b.style === 'primary' ? 'btn btn-primary'
+            : b.style === 'cyan'    ? 'btn btn-cyan'
+            : 'btn btn-secondary';
+    btnHtml += '<button class="' + cls + '" onclick="openUrl(\'' + (b.url||'').replace(/'/g,"\\'") + '\')">' + label + '</button>';
+  }
+  document.getElementById('cta-buttons').innerHTML = btnHtml;
+  var dl = document.getElementById('dismiss-label');
+  if (dl) dl.textContent = _dismissLabels[_lang] || _dismissLabels.en;
+}
+
+/* ── Send command to C++ via top-level navigation (iframe approach broken on Mac CEF) ── */
+function sendCmd(path) {
+  window.location.href = 'ue://welcome/' + path;
+}
+
+function onLangChange(code) {
+  _lang = code;
+  render();
+  sendCmd('setlanguage/' + code);
+}
+
+function openUrl(url) {
+  sendCmd('openurl/' + encodeURIComponent(url));
+}
+
+function doClose() {
+  var dismissed = document.getElementById('dismiss-check').checked;
+  if (dismissed) {
+    var dismissKey = _mode === 'announcement' ? 'announcement:' + (_data.announcement_id || '') : 'welcome';
+    sendCmd('dismiss/' + dismissKey);
+  } else {
+    sendCmd('close');
+  }
+}
+
+/* ── Initialization ── */
+/* The injected <script> block after the <textarea> handles init when C++ provides data.
+   This fallback fires 1.5s later if nothing initialized (e.g. standalone HTML test). */
+setTimeout(function() { if (!_data) initWelcome(_fallbackData); }, 1500);
+</script>
+<script>
+(function(){var proto=Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype,'value');function closeAll(x){document.querySelectorAll('.cs-list.open').forEach(function(l){if(l!==x){l.classList.remove('open');l.previousSibling.classList.remove('open');}});}function initSelect(sel){if(sel.dataset.cs)return;sel.dataset.cs='1';var wrap=document.createElement('div');wrap.className='cs-wrap';if(sel.style.cssText){wrap.style.cssText=sel.style.cssText;}sel.parentNode.insertBefore(wrap,sel);sel.style.cssText='display:none!important';wrap.appendChild(sel);var display=document.createElement('div');display.className='cs-display';display.setAttribute('tabindex','0');var list=document.createElement('div');list.className='cs-list';wrap.appendChild(display);wrap.appendChild(list);function refreshDisplay(){var cur=proto.get?proto.get.call(sel):sel.value;var opt=Array.from(sel.options).find(function(o){return o.value===cur;});display.textContent=opt?opt.text:(sel.options[0]?sel.options[0].text:'');}function buildAndOpen(){closeAll(list);list.innerHTML='';var cur=proto.get?proto.get.call(sel):sel.value;Array.from(sel.options).forEach(function(opt){var item=document.createElement('div');item.className='cs-item'+(opt.value===cur?' cs-sel':'')+(opt.disabled?' cs-disabled':'');item.textContent=opt.text;item.addEventListener('mousedown',function(e){e.preventDefault();e.stopPropagation();if(opt.disabled)return;if(proto.set)proto.set.call(sel,opt.value);else sel.value=opt.value;sel.dispatchEvent(new Event('change',{bubbles:true}));refreshDisplay();list.classList.remove('open');display.classList.remove('open');});list.appendChild(item);});list.classList.add('open');display.classList.add('open');}display.addEventListener('mousedown',function(e){e.preventDefault();e.stopPropagation();if(list.classList.contains('open')){list.classList.remove('open');display.classList.remove('open');}else buildAndOpen();});display.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();buildAndOpen();}if(e.key==='Escape'){list.classList.remove('open');display.classList.remove('open');}});Object.defineProperty(sel,'value',{get:function(){return proto.get?proto.get.call(this):this.getAttribute('value');},set:function(v){if(proto.set)proto.set.call(this,v);refreshDisplay();},configurable:true});new MutationObserver(refreshDisplay).observe(sel,{childList:true,subtree:true,attributes:true});refreshDisplay();}document.addEventListener('mousedown',function(e){if(!e.target.closest('.cs-wrap'))closeAll();});function initAll(){document.querySelectorAll('select:not([data-cs])').forEach(initSelect);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initAll);else initAll();new MutationObserver(function(muts){muts.forEach(function(m){m.addedNodes.forEach(function(n){if(n.nodeType!==1)return;if(n.tagName==='SELECT')initSelect(n);else if(n.querySelectorAll)n.querySelectorAll('select:not([data-cs])').forEach(initSelect);});});}).observe(document.body,{childList:true,subtree:true});}());
+</script>
+</body>
+</html>

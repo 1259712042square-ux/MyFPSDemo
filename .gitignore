@@ -1,0 +1,11 @@
+Source/.vs/ 
+Content/SourceArt_Robotics/ 
+Content/StarterContent/ 
+*.spp 
+*.tga 
+*.fbx 
+*.ma 
+Plugins/BpGeneratorUltimate/Binaries/ 
+*_BuiltData.uasset 
+*.pdb 
+Plugins/*/Binaries/ 
